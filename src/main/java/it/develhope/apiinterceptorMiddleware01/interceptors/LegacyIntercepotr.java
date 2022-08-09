@@ -14,10 +14,10 @@ public class LegacyIntercepotr implements HandlerInterceptor {
     //Questo metodo va a bloccare tutte le richieste con il path "/legacy",restituendo un'eccezione
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (request.getRequestURL().toString().contains("/legacy")) {
-            response.setStatus(404);
-            throw new Exception("This endpoint is blocked!");
-
-        } else
+            response.setStatus(410);
+            //throw new Exception("This endpoint is blocked!");
+            return false;
+        }
             return true;
     }
 
