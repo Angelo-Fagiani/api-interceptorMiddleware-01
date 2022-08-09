@@ -13,9 +13,7 @@ public class APILoggingInterceptor implements HandlerInterceptor {
 
     //Questo metodo verrà chiamato prima che il controller inizierà a lavorare
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        Long startTime = System.currentTimeMillis();
-        System.out.println("Request URL::" + request.getRequestURL().toString() + ":: Start Time=" + System.currentTimeMillis());
-        request.setAttribute("StartTime",startTime);
+        System.out.println("User-agent: " + request.getHeader("user-agent"));
         return true;
     }
     //Questo metodo viene chiamato dopo la richiesta API
